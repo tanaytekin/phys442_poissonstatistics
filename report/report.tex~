@@ -1,0 +1,106 @@
+
+\documentclass[reprint,amsmath,aps,nofootinbib,english]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{url}
+\usepackage{siunitx}
+\usepackage{float}
+
+\AtBeginDocument{\renewcommand{\natexlab}[1]{#1}}% <--- the fix
+\begin{document}
+
+\title{Poisson Statistics}
+\author{Tan Aytekin}
+\email[]{tan.aytekin@boun.edu.tr}
+\affiliation{Physics Department, Bogazici University, Istanbul, Turkey}
+\collaboration{Partner : Özgür Aydın}
+\date{\today}
+
+
+\begin{abstract}
+
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+
+\subsection{History}
+
+
+
+\section{Theory}
+Let $p$ is the probability of success on a single trial. The probability of observing $n$ successes in $N$ independent trials can be easily calculated with binonimal expension:
+\begin{align}
+        P(n;N,p) &= \binom{N}{n} p^{n} (1-p)^{N-n} \\
+                 &= \frac{N!}{n!(N-n)!} p^{n} (1-p)^{N-n}
+\end{align}
+This is called Binonimal Distribution and it is useful for calculating probability of success in indepently repeated processes like tossing coins, etc.\\
+
+Now consider our number of trials $N$ is too high and probability of success $p$ is too low. 
+
+
+\section{Experiment}
+\subsection{Apparatus and Setup}
+\subsection{Procedure}
+\section{Data Analysis}
+\section{Conclusion and Possible Error Sources}
+\newpage
+\appendix
+\section{Measurements}
+\section{Mathematical Concepts}
+
+\subsection{Chi-squared Test}
+$\chi^2$ can be defined as:
+\begin{align}
+  \chi^2_\nu = \sum \frac{(y_i -y(x_i))^2}{\sigma^2_i}
+\end{align}
+$\chi^2$ per degrees of freedom:
+\begin{align}
+  \chi^2_\nu = \frac{1}{\nu} \sum \frac{(y_i -y(x_i))^2}{\sigma^2_i}
+\end{align}
+where $\nu$ is the number of degrees of freedom; the number of data points minus the number of parameters: $N-m$.
+
+\subsection{Least Squares Method}
+
+Let's define line for fitting as $y_i = a_0 + a_1x_i$
+Parameters are
+\begin{align}
+  a_0 &= \frac{1}{D}\left(\sum_{k}^{N}\frac{x^2_k}{\sigma^2_k} \sum_{k}^{N}\frac{y_k}{\sigma^2_k} - \sum_{k}^{N}\frac{x_k}{\sigma^2_k} \sum_{k}^{N}\frac{x_k y_k}{\sigma^2_k}\right) \\
+    a_1 &= \frac{1}{D}\left(\sum_{k}^{N}\frac{1}{\sigma^2_k} \sum_{k}^{N}\frac{x_k y_k}{\sigma^2_k} - \sum_{k}^{N}\frac{x_k}{\sigma^2_k} \sum_{k}^{N}\frac{y_k}{\sigma^2_k}\right) \\
+    D &= \sum_{k}^{N}\frac{1}{\sigma^2_k} \sum_{k}^{N}\frac{x^2_k}{\sigma^2_k} - \left(\sum_{k}^{N}\frac{x_k}{\sigma^2_k}\right)^2
+\end{align}
+Uncertainties of Parameters are:
+\begin{align}
+\sigma^2_{a_0} = \frac{1}{D} \sum_{k}^{N}\frac{x^2_j}{\sigma^2_j} \\
+\sigma^2_{a_1} = \frac{1}{D} \sum_{k}^{N}\frac{1}{\sigma^2_j}
+\end{align}
+
+\subsection{Error Propagation}
+\begin{align}
+  \sigma^2_y = \sum_i^m \left(\frac{\partial f}{\partial x_i}\right)^2 \sigma^2_i \label{eq:err}
+\end{align}
+
+\subsection{Total Uncertainty}
+\begin{align}
+  \sigma^2 = \sigma_{systematic}^2 + \sigma_{instrumental}^2 + \sigma_{statistical}^2 \label{eq:unc}
+\end{align}
+
+\subsection{Weighted Mean and Standart Deviation} 
+Mean:
+\begin{align}
+\mu = \frac{\sum\limits_i^N x_i / \sigma_i^2}{\sum\limits_i^N 1/\sigma_i^2} \label{eq:mean}
+\end{align}
+Standard Deviation:
+\begin{align}
+  \sigma^2 \simeq \frac{1}{\sum\limits_i^N 1/\sigma_i^2}  \label{eq:meanstd}
+\end{align}
+
+
+\newpage
+\nocite{*}
+\bibliography{report}
+
+\end{document}
